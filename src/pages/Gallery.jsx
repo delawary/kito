@@ -5,7 +5,9 @@ import '../styles/global.css';
 
 // Import all images
 import heroBg from '../assets/hero_bg_premium.png';
+import heroBgOld from '../assets/hero-bg.png'; // Legacy
 import cltDetail from '../assets/clt_detail.png';
+import cltDetailOld from '../assets/clt-detail.png'; // Legacy
 import hotelExterior from '../assets/hotel_exterior_roadside.png';
 import guestRoom from '../assets/guest_room_interior.png';
 import lobbyWrapper from '../assets/kito_lobby.png';
@@ -14,12 +16,22 @@ import terrace from '../assets/kito_terrace.png';
 const Gallery = () => {
     // Image data array
     const images = [
-        { id: 1, src: heroBg, alt: "Exterior Architecture", category: "Architecture", size: "large" },
-        { id: 2, src: lobbyWrapper, alt: "Lobby Lounge", category: "Interior", size: "medium" },
-        { id: 3, src: guestRoom, alt: "Guest Room", category: "Interior", size: "medium" },
-        { id: 4, src: terrace, alt: "Evening Terrace", category: "Exterior", size: "wide" },
-        { id: 5, src: cltDetail, alt: "CLT Detail", category: "Detail", size: "small" },
-        { id: 6, src: hotelExterior, alt: "Roadside View", category: "Exterior", size: "medium" },
+        // Original Set
+        { id: 1, src: heroBg, alt: "Exterior Architecture", category: "Architecture", size: "large", style: {} },
+        { id: 2, src: lobbyWrapper, alt: "Lobby Lounge", category: "Interior", size: "medium", style: {} },
+        { id: 3, src: guestRoom, alt: "Guest Room", category: "Interior", size: "medium", style: {} },
+        { id: 4, src: terrace, alt: "Evening Terrace", category: "Exterior", size: "wide", style: {} },
+        { id: 5, src: cltDetail, alt: "CLT Detail", category: "Detail", size: "small", style: {} },
+        { id: 6, src: hotelExterior, alt: "Roadside View", category: "Exterior", size: "medium", style: {} },
+
+        // New Additions (Legacy & Variations)
+        { id: 7, src: heroBgOld, alt: "Original Concept", category: "Architecture", size: "medium", style: { filter: "sepia(0.2) contrast(1.1)" } },
+        { id: 8, src: cltDetailOld, alt: "Structural Prototype", category: "Detail", size: "small", style: {} },
+
+        // CSS Variations to add variety without new generation
+        { id: 9, src: hotelExterior, alt: "Exterior (Night)", category: "Exterior", size: "medium", style: { filter: "brightness(0.6) contrast(1.2) hue-rotate(200deg) saturate(0.8)" } },
+        { id: 10, src: lobbyWrapper, alt: "Lobby (Monochrome)", category: "Interior", size: "tall", style: { filter: "grayscale(100%) contrast(1.2)" } },
+        { id: 11, src: guestRoom, alt: "Morning Light", category: "Interior", size: "medium", style: { filter: "brightness(1.1) saturate(1.1)", transform: "scale(1.1)" } }, // Zoomed slightly
     ];
 
     const [selectedCategory, setSelectedCategory] = useState("All");
@@ -55,7 +67,12 @@ const Gallery = () => {
                         <Reveal key={img.id}>
                             <div className={`gallery-card ${img.size}`}>
                                 <div className="img-wrapper">
-                                    <img src={img.src} alt={img.alt} loading="lazy" />
+                                    <img
+                                        src={img.src}
+                                        alt={img.alt}
+                                        loading="lazy"
+                                        style={img.style} // Apply custom styles/filters
+                                    />
                                     <div className="img-overlay">
                                         <span className="img-category">{img.category}</span>
                                         <span className="img-title">{img.alt}</span>
@@ -138,7 +155,7 @@ const Gallery = () => {
                 }
 
                 .img-wrapper:hover img {
-                    transform: scale(1.05);
+                    transform: scale(1.05); /* Zoom effect on hover */
                 }
 
                 .img-overlay {

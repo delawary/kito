@@ -6,6 +6,7 @@ import CltCellUnit from './pages/CltCellUnit.jsx';
 import Investors from './pages/Investors.jsx';
 import Guests from './pages/Guests.jsx';
 import Gallery from './pages/Gallery.jsx';
+import Residence from './pages/Residence.jsx';
 import './styles/global.css';
 
 // Component to scroll to top on route change
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/clt-cell-unit" element={<CltCellUnit />} />
+          <Route path="/residence" element={<Residence />} />
           <Route path="/investors" element={<Investors />} />
           <Route path="/guests" element={<Guests />} />
           <Route path="/gallery" element={<Gallery />} />

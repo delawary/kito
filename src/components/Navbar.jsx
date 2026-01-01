@@ -32,6 +32,7 @@ const Navbar = () => {
                 <ul className="navbar-links">
                     <li><Link to="/">TOP</Link></li>
                     <li><Link to="/clt-cell-unit">CLTセルユニット</Link></li>
+                    <li><Link to="/residence">住まい</Link></li>
                     <li><Link to="/investors">投資家の皆様へ</Link></li>
                     <li><Link to="/guests">宿泊体験</Link></li>
                     <li><Link to="/gallery">ギャラリー</Link></li>
