@@ -1,42 +1,48 @@
 :root {
-  /* Colors */
-  --color-wood-dark: #4A3B32;
-  --color-wood-medium: #8B5E3C;
-  --color-wood-light: #D4B483;
-  
-  --color-background-off-white: #F9F8F6;
-  --color-background-dark: #1A1A1A;
-  
-  --color-text-primary: #2C2C2C;
-  --color-text-secondary: #595959;
-  --color-text-light: #F2F2F2;
+    /* Colors - Premium Natural & Gold */
+    /* Base Colors */
+    --color-background-off-white: #f9f8f6; /* Warm, soft white */
+    --color-background-dark: #1a1a1a;       /* Rich dark charcoal */
+    
+    /* Wood Tones */
+    --color-wood-light: #d6beb0;
+    --color-wood-medium: #8c7b70;
+    --color-wood-dark: #5e4b41;
+    
+    /* Accents */
+    --color-accent: #c5a47e;      /* Gold/Bronze-like accent */
+    --color-accent-hover: #b08d66;
+    
+    /* Text */
+    --color-text-primary: #2d2d2d;
+    --color-text-secondary: #5a5a5a;
+    --color-text-light: #ffffff;
+    --color-text-muted: #999999;
 
-  --color-accent: #C1A57B;
-
-  /* Typography */
-  --font-family-serif: 'Cormorant Garamond', serif;
-  --font-family-sans: 'Inter', sans-serif;
-
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-size-3xl: 3rem;
-  --font-size-4xl: 4.5rem;
-  --font-size-hero: 6rem;
-
-  /* Spacing */
-  --spacing-container: 1440px;
-  --spacing-padding-mobile: 1.5rem;
-  --spacing-padding-desktop: 4rem;
-
-  /* Animation */
-  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-medium: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  
-  /* Z-Index */
-  --z-navbar: 100;
-  --z-overlay: 50;
+    /* Typography */
+    --font-family-serif: 'Cormorant Garamond', serif;
+    --font-family-sans: 'Inter', sans-serif;
+    
+    /* Sizes */
+    --font-size-hero: 5.5rem;
+    --font-size-h1: 3.5rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.75rem;
+    --font-size-body: 1.1rem;
+    --font-size-lg: 1.25rem;
+    
+    /* Spacing */
+    --spacing-container: 1280px;
+    --spacing-section: 120px;
+    --spacing-padding-mobile: 24px;
+    --spacing-padding-desktop: 48px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.4s ease;
+    --transition-slow: 0.8s ease;
+    
+    /* Shadows */
+    --shadow-soft: 0 10px 40px rgba(0,0,0,0.05);
+    --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
 }

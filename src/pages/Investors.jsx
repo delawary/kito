@@ -1,79 +1,150 @@
 import React from 'react';
+import hotelExterior from '../assets/hotel_exterior_roadside.png';
 import '../styles/global.css';
 
 const Investors = () => {
     return (
         <div className="page-container">
             <header className="page-header">
-                <div className="container">
-                    <h1 className="page-title fade-in-up">投資家の皆様へ</h1>
-                    <p className="page-subtitle fade-in-up delay-1">新しいロードサイドホテルの形</p>
+                <img src={hotelExterior} alt="Roadside Hotel Exterior" className="hero-img" />
+                <div className="hero-overlay"></div>
+                <div className="container header-content">
+                    <h1 className="page-title fade-in-up">Investment Opportunities</h1>
+                    <p className="page-subtitle fade-in-up delay-1">次世代ロードサイドホテル事業への招待</p>
                 </div>
             </header>
 
             <section className="section container">
-                <div className="content-block fade-in-up delay-2">
+                <div className="intro-block text-center fade-in-up delay-2">
                     <h2>KITOのビジネスモデル</h2>
                     <p>
-                        私たちは単なる建設会社ではありません。CLTセルユニットという革新的な技術を活用し、
-                        自らが「ホテルオペレーター」としてロードサイドホテルの運営を行います。
-                        土地の選定から建設、そして日々の運営までを一貫して手掛けることで、
-                        高収益かつ持続可能な事業モデルを構築しています。
+                        「建設会社 × ホテルオペレーター」<br />
+                        私たちは、自社開発のCLTセルユニット技術を最大限に活用し、
+                        土地選定から建設、運営までを一気通貫で行うことで、
+                        高収益かつサステナブルな投資機会を創出します。
                     </p>
                 </div>
 
-                <div className="content-block fade-in-up">
-                    <h2>投資のメリット</h2>
-                    <ul className="benefit-list">
-                        <li>
-                            <strong>初期投資の抑制：</strong>
-                            工場生産によるコストダウンと工期短縮により、従来のホテル建設に比べて初期投資を大幅に抑えることが可能です。
-                        </li>
-                        <li>
-                            <strong>早期の収益化：</strong>
-                            短い工期（最短2週間程度での棟上げ）により、資金投下から営業開始までのリードタイムを最小限にし、早期のキャッシュフローを生み出します。
-                        </li>
-                        <li>
-                            <strong>高い資産価値：</strong>
-                            移設可能なユニット構造であるため、万が一の立地リスクにも対応可能。不動産としての流動性が高く、出口戦略が描きやすいのも特徴です。
-                        </li>
-                    </ul>
+                <div className="merit-grid fade-in-up">
+                    <div className="merit-item">
+                        <span className="number">01</span>
+                        <h3>初期投資の最小化</h3>
+                        <p>工場生産による効率化で、建築コストを大幅に削減。短工期により、資金回収までの期間も短縮されます。</p>
+                    </div>
+                    <div className="merit-item">
+                        <span className="number">02</span>
+                        <h3>流動性の高い不動産</h3>
+                        <p>移設可能なユニット構造は、万が一の立地リスクをヘッジします。土地に縛られない、新しい不動産の形です。</p>
+                    </div>
+                    <div className="merit-item">
+                        <span className="number">03</span>
+                        <h3>地方創生への貢献</h3>
+                        <p>宿泊施設不足に悩む地方のロードサイドに、質の高い宿泊体験を提供することで、地域経済を活性化させます。</p>
+                    </div>
                 </div>
 
-                <div className="content-block fade-in-up">
-                    <h2>今後の展望</h2>
-                    <p>
-                        全国の主要なロードサイドエリアへの展開を計画しています。
-                        手軽に泊まれる快適な宿泊施設が不足している地域に、KITOの木のホテルを展開することで、
-                        地方創生と観光需要の受け皿作りを同時に実現します。
-                        持続可能な社会投資としての側面も併せ持つ、KITOの事業にぜひご期待ください。
-                    </p>
+                <div className="cta-section fade-in-up">
+                    <h2>お問い合わせ</h2>
+                    <p>事業計画の詳細やシミュレーションについては、お気軽にお問い合わせください。</p>
+                    <button className="btn-primary">資料請求 / お問い合わせ</button>
                 </div>
             </section>
 
             <style>{`
                 .page-header {
-                    background-color: #2c3e50; /* distinct color for investors */
+                    position: relative;
+                    height: 70vh;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     color: white;
-                    padding: 120px 0 60px;
+                    margin-bottom: 6rem;
+                }
+
+                .hero-img {
+                    position: absolute;
+                    top: 0; left: 0; width: 100%; height: 100%;
+                    object-fit: cover;
+                    z-index: 1;
+                    filter: brightness(0.8);
+                }
+
+                .header-content { position: relative; z-index: 3; text-align: center; }
+
+                .page-title { 
+                    font-size: clamp(2.5rem, 5vw, 4rem); 
+                    margin-bottom: 1rem; 
+                    font-weight: 300;
+                    letter-spacing: -0.01em;
+                }
+
+                .intro-block {
+                    max-width: 800px;
+                    margin: 0 auto 6rem;
+                }
+                .intro-block p {
+                    font-size: 1.2rem;
+                    opacity: 0.8;
+                }
+
+                /* Grid Layout */
+                .merit-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 3rem;
+                    margin-bottom: 8rem;
+                }
+
+                .merit-item {
+                    padding: 2rem;
+                    border: 1px solid #eee;
+                    position: relative;
+                    transition: all var(--transition-medium);
+                }
+
+                .merit-item:hover {
+                    box-shadow: var(--shadow-soft);
+                    border-color: transparent;
+                }
+
+                .merit-item .number {
+                    font-family: var(--font-family-serif);
+                    font-size: 4rem;
+                    color: var(--color-accent);
+                    opacity: 0.3;
+                    position: absolute;
+                    top: -1.5rem;
+                    right: 1rem;
+                }
+
+                .merit-item h3 {
+                    font-size: 1.4rem;
+                    margin-bottom: 1rem;
+                    border-bottom: 1px solid var(--color-accent);
+                    padding-bottom: 0.5rem;
+                    display: inline-block;
+                }
+
+                .cta-section {
                     text-align: center;
-                    margin-bottom: 4rem;
+                    background-color: var(--color-background-dark);
+                    color: white;
+                    padding: 4rem;
                 }
-                
-                /* Reuse styles from CltCellUnit or global */
-                .page-title { font-size: 2.5rem; margin-bottom: 1rem; }
-                .page-subtitle { opacity: 0.8; letter-spacing: 0.1em; }
-                .content-block { margin-bottom: 4rem; max-width: 800px; margin: 0 auto 4rem; }
-                .content-block h2 { 
-                    font-size: 1.8rem; 
-                    color: #2c3e50; 
-                    margin-bottom: 1.5rem; 
-                    border-bottom: 1px solid #bdc3c7; 
-                    padding-bottom: 0.5rem; 
+
+                .btn-primary {
+                    margin-top: 2rem;
+                    padding: 1rem 3rem;
+                    background-color: var(--color-accent);
+                    color: white;
+                    border: none;
+                    font-size: 1rem;
+                    letter-spacing: 0.1em;
+                    cursor: pointer;
+                    transition: background-color var(--transition-fast);
                 }
-                .benefit-list { list-style: none; }
-                .benefit-list li { margin-bottom: 1.5rem; padding-left: 1.5rem; position: relative; }
-                .benefit-list li::before { content: '✓'; color: #e67e22; position: absolute; left: 0; top: 0; font-weight:bold; }
+                .btn-primary:hover { background-color: var(--color-accent-hover); }
 
                 .fade-in-up { animation: fadeInUp 0.8s forwards; opacity: 0; transform: translateY(20px); }
                 .delay-1 { animation-delay: 0.2s; }
