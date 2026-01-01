@@ -8,6 +8,7 @@ import Guests from './pages/Guests.jsx';
 import Gallery from './pages/Gallery.jsx';
 import Residence from './pages/Residence.jsx';
 import Contact from './components/Contact.jsx';
+import ScrollManager from './components/ScrollManager.jsx';
 import './styles/global.css';
 
 // Component to scroll to top on route change
@@ -25,6 +26,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <ScrollManager />
       <div className="app-container">
         <Navbar />
         <Routes>

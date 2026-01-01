@@ -126,7 +126,7 @@ const Residence = () => {
                             アパート経営、土地活用、社宅建築のご相談はこちらから。<br />
                             プランニングから概算見積もりまで、お気軽にお問い合わせください。
                         </p>
-                        <button className="btn-primary">住まいについて相談する</button>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdht0RvkOtMU3rMTpiaaxUWEYLnDERXFVvrGa18K5t6GuIi0w/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block', textDecoration: 'none' }}>住まいについて相談する</a>
                     </Reveal>
                 </div>
             </section>

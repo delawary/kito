@@ -12,7 +12,7 @@ const Contact = () => {
               <br />
               持続可能な未来を、共に創りましょう。
             </p>
-            <a href="#contact" className="cta-button">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdht0RvkOtMU3rMTpiaaxUWEYLnDERXFVvrGa18K5t6GuIi0w/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="cta-button">
               お問い合わせ
             </a>
           </div>

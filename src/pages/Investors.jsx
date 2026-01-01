@@ -156,7 +156,7 @@ const Investors = () => {
                             遊休地の簡易診断など、詳細な資料をご用意しております。<br />
                             まずは無料相談よりお問い合わせください。
                         </p>
-                        <button className="btn-primary">資料請求 / 事業相談</button>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdht0RvkOtMU3rMTpiaaxUWEYLnDERXFVvrGa18K5t6GuIi0w/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block', textDecoration: 'none' }}>資料請求 / 事業相談</a>
                     </Reveal>
                 </div>
             </section>

@@ -1,28 +1,32 @@
 :root {
     /* Colors - Premium Natural & Gold */
     /* Base Colors */
-    --color-background-off-white: #f9f8f6; /* Warm, soft white */
-    --color-background-dark: #1a1a1a;       /* Rich dark charcoal */
-    
+    --color-background-off-white: #f9f8f6;
+    /* Warm, soft white */
+    --color-background-dark: #1a1a1a;
+    /* Rich dark charcoal */
+
     /* Wood Tones */
     --color-wood-light: #d6beb0;
     --color-wood-medium: #8c7b70;
     --color-wood-dark: #5e4b41;
-    
+
     /* Accents */
-    --color-accent: #c5a47e;      /* Gold/Bronze-like accent */
+    --color-accent: #c5a47e;
+    /* Gold/Bronze-like accent */
     --color-accent-hover: #b08d66;
-    
+
     /* Text */
     --color-text-primary: #2d2d2d;
     --color-text-secondary: #5a5a5a;
     --color-text-light: #ffffff;
     --color-text-muted: #999999;
 
-    /* Typography */
-    --font-family-serif: 'Cormorant Garamond', serif;
-    --font-family-sans: 'Inter', sans-serif;
-    
+    /* Typography - Updated to Premium Japanese Fonts */
+    --font-family-serif: 'Cormorant Garamond', 'Shippori Mincho', 'Zen Old Mincho', serif;
+    --font-family-sans: 'Inter', "Yu Mincho", "YuMincho", serif;
+    /* Use Serif for body too for premium feel? Or keep Inter. Let's keep Inter for readability but maybe mix. Actually user asked for Shippori Mincho. Let's make serif primary for headings. */
+
     /* Sizes */
     --font-size-hero: 5.5rem;
     --font-size-h1: 3.5rem;
@@ -30,19 +34,19 @@
     --font-size-h3: 1.75rem;
     --font-size-body: 1.1rem;
     --font-size-lg: 1.25rem;
-    
+
     /* Spacing */
     --spacing-container: 1280px;
     --spacing-section: 120px;
     --spacing-padding-mobile: 24px;
     --spacing-padding-desktop: 48px;
-    
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-medium: 0.4s ease;
     --transition-slow: 0.8s ease;
-    
+
     /* Shadows */
-    --shadow-soft: 0 10px 40px rgba(0,0,0,0.05);
-    --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
