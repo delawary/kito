@@ -1,5 +1,6 @@
 import React from 'react';
 import hotelExterior from '../assets/hotel_exterior_roadside.png';
+import { Reveal } from '../components/animations/Reveal.jsx';
 import '../styles/global.css';
 
 const Investors = () => {
@@ -9,44 +10,58 @@ const Investors = () => {
                 <img src={hotelExterior} alt="Roadside Hotel Exterior" className="hero-img" />
                 <div className="hero-overlay"></div>
                 <div className="container header-content">
-                    <h1 className="page-title fade-in-up">Investment Opportunities</h1>
-                    <p className="page-subtitle fade-in-up delay-1">次世代ロードサイドホテル事業への招待</p>
+                    <Reveal>
+                        <h1 className="page-title">Investment Opportunities</h1>
+                    </Reveal>
+                    <Reveal delay={0.4}>
+                        <p className="page-subtitle">次世代ロードサイドホテル事業への招待</p>
+                    </Reveal>
                 </div>
             </header>
 
             <section className="section container">
-                <div className="intro-block text-center fade-in-up delay-2">
-                    <h2>KITOのビジネスモデル</h2>
-                    <p>
-                        「建設会社 × ホテルオペレーター」<br />
-                        私たちは、自社開発のCLTセルユニット技術を最大限に活用し、
-                        土地選定から建設、運営までを一気通貫で行うことで、
-                        高収益かつサステナブルな投資機会を創出します。
-                    </p>
+                <div className="intro-block text-center">
+                    <Reveal width="100%">
+                        <h2>KITOのビジネスモデル</h2>
+                        <p>
+                            「建設会社 × ホテルオペレーター」<br />
+                            私たちは、自社開発のCLTセルユニット技術を最大限に活用し、
+                            土地選定から建設、運営までを一気通貫で行うことで、
+                            高収益かつサステナブルな投資機会を創出します。
+                        </p>
+                    </Reveal>
                 </div>
 
-                <div className="merit-grid fade-in-up">
-                    <div className="merit-item">
-                        <span className="number">01</span>
-                        <h3>初期投資の最小化</h3>
-                        <p>工場生産による効率化で、建築コストを大幅に削減。短工期により、資金回収までの期間も短縮されます。</p>
-                    </div>
-                    <div className="merit-item">
-                        <span className="number">02</span>
-                        <h3>流動性の高い不動産</h3>
-                        <p>移設可能なユニット構造は、万が一の立地リスクをヘッジします。土地に縛られない、新しい不動産の形です。</p>
-                    </div>
-                    <div className="merit-item">
-                        <span className="number">03</span>
-                        <h3>地方創生への貢献</h3>
-                        <p>宿泊施設不足に悩む地方のロードサイドに、質の高い宿泊体験を提供することで、地域経済を活性化させます。</p>
-                    </div>
+                <div className="merit-grid">
+                    <Reveal delay={0.2}>
+                        <div className="merit-item">
+                            <span className="number">01</span>
+                            <h3>初期投資の最小化</h3>
+                            <p>工場生産による効率化で、建築コストを大幅に削減。短工期により、資金回収までの期間も短縮されます。</p>
+                        </div>
+                    </Reveal>
+                    <Reveal delay={0.4}>
+                        <div className="merit-item">
+                            <span className="number">02</span>
+                            <h3>流動性の高い不動産</h3>
+                            <p>移設可能なユニット構造は、万が一の立地リスクをヘッジします。土地に縛られない、新しい不動産の形です。</p>
+                        </div>
+                    </Reveal>
+                    <Reveal delay={0.6}>
+                        <div className="merit-item">
+                            <span className="number">03</span>
+                            <h3>地方創生への貢献</h3>
+                            <p>宿泊施設不足に悩む地方のロードサイドに、質の高い宿泊体験を提供することで、地域経済を活性化させます。</p>
+                        </div>
+                    </Reveal>
                 </div>
 
-                <div className="cta-section fade-in-up">
-                    <h2>お問い合わせ</h2>
-                    <p>事業計画の詳細やシミュレーションについては、お気軽にお問い合わせください。</p>
-                    <button className="btn-primary">資料請求 / お問い合わせ</button>
+                <div className="cta-section">
+                    <Reveal width="100%">
+                        <h2>お問い合わせ</h2>
+                        <p>事業計画の詳細やシミュレーションについては、お気軽にお問い合わせください。</p>
+                        <button className="btn-primary">資料請求 / お問い合わせ</button>
+                    </Reveal>
                 </div>
             </section>
 
@@ -68,9 +83,12 @@ const Investors = () => {
                     object-fit: cover;
                     z-index: 1;
                     filter: brightness(0.8);
+                    animation: zoomIn 20s infinite alternate ease-in-out;
                 }
+                
+                @keyframes zoomIn { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
 
-                .header-content { position: relative; z-index: 3; text-align: center; }
+                .header-content { position: relative; z-index: 3; text-align: center; display: flex; flex-direction: column; align-items: center;}
 
                 .page-title { 
                     font-size: clamp(2.5rem, 5vw, 4rem); 
@@ -83,6 +101,7 @@ const Investors = () => {
                     max-width: 800px;
                     margin: 0 auto 6rem;
                 }
+                .intro-block h2 { margin-bottom: 1.5rem; font-size: var(--font-size-h2); }
                 .intro-block p {
                     font-size: 1.2rem;
                     opacity: 0.8;
@@ -101,11 +120,14 @@ const Investors = () => {
                     border: 1px solid #eee;
                     position: relative;
                     transition: all var(--transition-medium);
+                    height: 100%;
+                    background: white;
                 }
 
                 .merit-item:hover {
                     box-shadow: var(--shadow-soft);
                     border-color: transparent;
+                    transform: translateY(-5px);
                 }
 
                 .merit-item .number {
@@ -145,11 +167,6 @@ const Investors = () => {
                     transition: background-color var(--transition-fast);
                 }
                 .btn-primary:hover { background-color: var(--color-accent-hover); }
-
-                .fade-in-up { animation: fadeInUp 0.8s forwards; opacity: 0; transform: translateY(20px); }
-                .delay-1 { animation-delay: 0.2s; }
-                .delay-2 { animation-delay: 0.4s; }
-                @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
             `}</style>
         </div>
     );

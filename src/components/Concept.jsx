@@ -1,57 +1,49 @@
-import React, { useEffect, useRef, useState } from 'react';
-import cltDetail from '../assets/clt-detail.png';
+import React from 'react';
+import cltDetail from '../assets/clt_detail.png';
+import { Reveal } from '../components/animations/Reveal.jsx';
+import { StaggerText } from '../components/animations/StaggerText.jsx';
+import { ParallaxImage } from '../components/animations/ParallaxImage.jsx';
 
 const Concept = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.2 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => {
-            if (sectionRef.current) observer.unobserve(sectionRef.current);
-        };
-    }, []);
-
     return (
-        <section className="concept-section" ref={sectionRef}>
+        <section className="concept-section">
             <div className="container">
-                <div className={`concept-grid ${isVisible ? 'animate' : ''}`}>
+                <div className="concept-grid">
                     <div className="concept-text">
-                        <h2 className="section-title">
-                            構築される<br />
-                            自然。
-                        </h2>
-                        <p className="concept-description">
-                            CLT（直交集成板）は、単なる木材ではありません。それは、持続可能な建築の未来です。
-                            木材を繊維方向が直交するように積層接着することで、コンクリートに匹敵する強度と、木の温もりを兼ね備えた素材が生まれます。
-                            <br /><br />
-                            KITOのユニットは、この技術を最大限に活用し、現代的でありながら、深く森とつながる空間を創造します。
-                        </p>
-                        <div className="stats-row">
-                            <div className="stat">
-                                <span className="stat-number">CO₂</span>
-                                <span className="stat-label">カーボンニュートラル</span>
+                        <Reveal>
+                            {/* Use h2 directly or wrapper. StaggerText for the title for emphasis if viewed first time, 
+                                 but Reveal is safer for scroll handling. Let's stick to Reveal for block fade 
+                                 and maybe StaggerText for just the letters inside if we want extra flair, 
+                                 but let's keep it clean with Reveal for now to match the "elegant" request. */}
+                            <h2 className="section-title">
+                                構築される<br />
+                                自然。
+                            </h2>
+                        </Reveal>
+                        <Reveal delay={0.3}>
+                            <p className="concept-description">
+                                CLT（直交集成板）は、単なる木材ではありません。それは、持続可能な建築の未来です。
+                                木材を繊維方向が直交するように積層接着することで、コンクリートに匹敵する強度と、木の温もりを兼ね備えた素材が生まれます。
+                                <br /><br />
+                                KITOのユニットは、この技術を最大限に活用し、現代的でありながら、深く森とつながる空間を創造します。
+                            </p>
+                        </Reveal>
+                        <Reveal delay={0.5}>
+                            <div className="stats-row">
+                                <div className="stat">
+                                    <span className="stat-number">CO₂</span>
+                                    <span className="stat-label">カーボンニュートラル</span>
+                                </div>
+                                <div className="stat">
+                                    <span className="stat-number">100%</span>
+                                    <span className="stat-label">リサイクル可能</span>
+                                </div>
                             </div>
-                            <div className="stat">
-                                <span className="stat-number">100%</span>
-                                <span className="stat-label">リサイクル可能</span>
-                            </div>
-                        </div>
+                        </Reveal>
                     </div>
                     <div className="concept-image-wrapper">
-                        <img src={cltDetail} alt="CLT Detail" className="concept-image" />
+                        {/* Swapped custom manual parallax logic for the standardized components */}
+                        <ParallaxImage src={cltDetail} alt="CLT Detail" className="concept-image-parallax" />
                         <div className="image-overlay"></div>
                     </div>
                 </div>
@@ -69,20 +61,12 @@ const Concept = () => {
                 grid-template-columns: 1fr;
                 gap: 4rem;
                 align-items: center;
-                opacity: 0;
-                transform: translateY(40px);
-                transition: opacity 1s ease-out, transform 1s ease-out;
             }
 
             @media (min-width: 960px) {
                 .concept-grid {
                     grid-template-columns: 1fr 1fr;
                 }
-            }
-
-            .concept-grid.animate {
-                opacity: 1;
-                transform: translateY(0);
             }
 
             .section-title {
@@ -126,19 +110,23 @@ const Concept = () => {
 
             .concept-image-wrapper {
                 position: relative;
-                border-radius: 4px; /* Slight softening */
+                border-radius: 4px;
                 overflow: hidden;
                 box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+                height: 500px; /* Fixed height for consistent layout */
+            }
+            
+            .concept-image-parallax {
+                width: 100%; height: 100%;
             }
 
-            .concept-image {
-                width: 100%;
-                height: auto;
-                transition: transform 1.5s cubic-bezier(0.2, 1, 0.3, 1);
-            }
-
-            .concept-grid:hover .concept-image {
-                transform: scale(1.03);
+            /* Custom overlay if needed, ParallaxImage doesn't include it by default inside */
+            .image-overlay {
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: linear-gradient(to bottom right, rgba(0,0,0,0) 50%, rgba(197, 164, 126, 0.1));
+                pointer-events: none;
             }
         `}</style>
         </section>

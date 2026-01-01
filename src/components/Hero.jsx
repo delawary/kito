@@ -1,35 +1,66 @@
-import React from 'react';
-/* 
-   Note: In a real environment, we would import the image from a local path relative to this file.
-   However, since the images were generated to the artifacts folder, I will assume they are copied
-   to src/assets/ or referenced correctly. For now, I will update the import assuming the image
-   is in ../assets/hero_bg_premium.png. 
-   **CRITICAL**: I must ensure the file exists there. I will handle the file copy in the next step.
-*/
-// import heroBg from '../assets/hero_bg_premium.png'; // Placeholder for now, original uses import
-// Using the path relative to where I will put the image
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { StaggerText } from './animations/StaggerText.jsx';
 import heroBg from '../assets/hero_bg_premium.png';
-
 import '../styles/global.css';
 
 const Hero = () => {
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start start", "end start"]
+    });
+
+    // Background parallax & scale
+    const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+    const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
     return (
-        <section className="hero-section">
-            <div className="hero-background" style={{ backgroundImage: `url(${heroBg})` }}></div>
-            <div className="hero-overlay"></div>
+        <section className="hero-section" ref={ref}>
+            <motion.div
+                className="hero-background-wrapper"
+                style={{ y, scale, opacity }}
+            >
+                <div
+                    className="hero-background"
+                    style={{ backgroundImage: `url(${heroBg})` }}
+                ></div>
+                <div className="hero-overlay"></div>
+            </motion.div>
+
             <div className="hero-content container">
-                <h1 className="hero-title fade-in-up">
-                    自然と、生きる。
+                <h1 className="hero-title">
+                    <StaggerText text="自然と、生きる。" className="hero-title-main" delay={0.5} />
                     <br />
-                    <span className="hero-title-sub">CLTが拓く、建築の未来</span>
+                    <motion.span
+                        className="hero-title-sub"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.5, duration: 1 }}
+                    >
+                        CLTが拓く、建築の未来
+                    </motion.span>
                 </h1>
-                <p className="hero-subtitle fade-in-up delay-1">
+
+                <motion.p
+                    className="hero-subtitle"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.8 }}
+                    transition={{ delay: 2.0, duration: 1 }}
+                >
                     KITO - The Future of Wood Architecture
-                </p>
-                <div className="scroll-indicator fade-in-up delay-2">
+                </motion.p>
+
+                <motion.div
+                    className="scroll-indicator"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.7 }}
+                    transition={{ delay: 2.5, duration: 1 }}
+                >
                     <span className="line"></span>
                     SCROLL
-                </div>
+                </motion.div>
             </div>
 
             <style>{`
@@ -43,30 +74,24 @@ const Hero = () => {
                 color: var(--color-text-light);
             }
 
-            .hero-background {
+            .hero-background-wrapper {
                 position: absolute;
-                top: 0;
-                left: 0;
+                top: 0; left: 0; width: 100%; height: 100%;
+                z-index: 1;
+            }
+
+            .hero-background {
                 width: 100%;
                 height: 100%;
                 background-size: cover;
                 background-position: center;
-                z-index: 1;
-                /* Enhanced Parallax */
-                transform: scale(1.1); 
-                transition: transform 10s ease-out;
             }
-            
-            /* Simple zoom effect on load if we added JS, for now static but prepared */
 
             .hero-overlay {
                 position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
                 background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
-                z-index: 2;
             }
 
             .hero-content {
@@ -74,6 +99,11 @@ const Hero = () => {
                 z-index: 3;
                 width: 100%;
                 padding-top: 10vh;
+                /* Allow text to wrap nicely */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%; 
             }
 
             .hero-title {
@@ -84,6 +114,12 @@ const Hero = () => {
                 font-weight: 300;
                 letter-spacing: -0.02em;
                 text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            }
+            
+            /* Override StaggerText container inline style to block for main title */
+            .hero-title-main {
+                display: block !important;
+                text-align: left; /* Or center based on design */
             }
 
             .hero-title-sub {
@@ -99,45 +135,25 @@ const Hero = () => {
                 font-size: var(--font-size-lg);
                 letter-spacing: 0.3em;
                 text-transform: uppercase;
-                opacity: 0.8;
                 margin-left: 4px;
             }
 
             .scroll-indicator {
                 position: absolute;
-                bottom: -20vh; /* Adjust based on padding-top container */
-                margin-top: 15vh;
-                left: 0; /* Or center */
+                bottom: 3rem;
+                left: var(--spacing-padding-desktop);
                 display: flex;
                 align-items: center;
                 gap: 1rem;
                 font-family: var(--font-family-sans);
                 font-size: 0.8rem;
                 letter-spacing: 0.2em;
-                opacity: 0.7;
             }
 
             .scroll-indicator .line {
                 width: 60px;
                 height: 1px;
                 background-color: white;
-            }
-
-            /* Animations */
-            .fade-in-up {
-                animation: fadeInUp var(--transition-slow) forwards;
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            .delay-1 { animation-delay: 0.3s; }
-            .delay-2 { animation-delay: 0.6s; }
-
-            @keyframes fadeInUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
             }
         `}</style>
         </section>
