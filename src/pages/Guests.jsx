@@ -82,7 +82,7 @@ const Guests = () => {
                     <div className="scene-row">
                         <div className="scene-content">
                             <h4>09:00 PM - Deep Night</h4>
-                            <h5>炎と星空に包まれる夜</h5>
+                            <h5>星空に包まれる夜</h5>
                             <p>
                                 日が暮れると、あたりは漆黒の闇と静寂に包まれます。<br />
                                 テラスのファイヤーピットに火を灯し、揺らぐ炎を見つめる。<br />

@@ -19,19 +19,11 @@ const Contact = () => {
 
           <div className="contact-info">
             <div className="info-group">
-              <h3 className="info-label">住所</h3>
-              <p>
-                〒107-0062
-                <br />
-                東京都港区南青山 1-2-3
-              </p>
-            </div>
-            <div className="info-group">
               <h3 className="info-label">連絡先</h3>
               <p>
-                <a href="mailto:info@kito-clt.jp">info@kito-clt.jp</a>
+                <a href="https://ryokan.life/" target="_blank" rel="noopener noreferrer">運営会社</a>
                 <br />
-                03-1234-5678
+                <a href="mailto:info@ryokan.life">info@ryokan.life</a>
               </p>
             </div>
             <div className="info-group">
