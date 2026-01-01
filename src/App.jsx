@@ -7,6 +7,7 @@ import Investors from './pages/Investors.jsx';
 import Guests from './pages/Guests.jsx';
 import Gallery from './pages/Gallery.jsx';
 import Residence from './pages/Residence.jsx';
+import Contact from './components/Contact.jsx';
 import './styles/global.css';
 
 // Component to scroll to top on route change
@@ -34,6 +35,7 @@ function App() {
           <Route path="/guests" element={<Guests />} />
           <Route path="/gallery" element={<Gallery />} />
         </Routes>
+        <Contact />
       </div>
     </Router>
   )

@@ -29,8 +29,7 @@ const Gallery = () => {
         { id: 8, src: cltDetailOld, alt: "Structural Prototype", category: "Detail", size: "small", style: {} },
 
         // CSS Variations to add variety without new generation
-        { id: 9, src: hotelExterior, alt: "Exterior (Night)", category: "Exterior", size: "medium", style: { filter: "brightness(0.6) contrast(1.2) hue-rotate(200deg) saturate(0.8)" } },
-        { id: 10, src: lobbyWrapper, alt: "Lobby (Monochrome)", category: "Interior", size: "tall", style: { filter: "grayscale(100%) contrast(1.2)" } },
+
         { id: 11, src: guestRoom, alt: "Morning Light", category: "Interior", size: "medium", style: { filter: "brightness(1.1) saturate(1.1)", transform: "scale(1.1)" } }, // Zoomed slightly
     ];
 
