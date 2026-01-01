@@ -1,0 +1,42 @@
+:root {
+  /* Colors */
+  --color-wood-dark: #4A3B32;
+  --color-wood-medium: #8B5E3C;
+  --color-wood-light: #D4B483;
+  
+  --color-background-off-white: #F9F8F6;
+  --color-background-dark: #1A1A1A;
+  
+  --color-text-primary: #2C2C2C;
+  --color-text-secondary: #595959;
+  --color-text-light: #F2F2F2;
+
+  --color-accent: #C1A57B;
+
+  /* Typography */
+  --font-family-serif: 'Cormorant Garamond', serif;
+  --font-family-sans: 'Inter', sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+  --font-size-4xl: 4.5rem;
+  --font-size-hero: 6rem;
+
+  /* Spacing */
+  --spacing-container: 1440px;
+  --spacing-padding-mobile: 1.5rem;
+  --spacing-padding-desktop: 4rem;
+
+  /* Animation */
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-medium: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Z-Index */
+  --z-navbar: 100;
+  --z-overlay: 50;
+}
