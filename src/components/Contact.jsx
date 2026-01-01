@@ -50,14 +50,14 @@ const Contact = () => {
         .contact-section {
           background-color: var(--color-wood-dark);
           color: var(--color-background-off-white);
-          padding: 8rem 0 2rem;
+          padding: 4rem 0 2rem;
         }
 
         .contact-content {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 4rem;
-          margin-bottom: 6rem;
+          gap: 3rem;
+          margin-bottom: 3rem;
         }
 
         @media (min-width: 960px) {

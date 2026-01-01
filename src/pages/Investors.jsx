@@ -224,7 +224,7 @@ const Investors = () => {
                 .value-card h4 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--color-wood-dark); }
                 .value-card p { font-size: 0.95rem; line-height: 1.8; opacity: 0.8; text-align: justify; }
 
-                .cta-section { text-align: center; background-color: var(--color-wood-dark); color: white; padding: 5rem 2rem; border-radius: 4px; }
+                .cta-section { text-align: center; background-color: var(--color-wood-dark); color: white; padding: 3rem 1.5rem; border-radius: 4px; }
                 .cta-section h2 { margin-bottom: 1.5rem; color: var(--color-accent); }
                 .cta-section p { margin-bottom: 2rem; opacity: 0.9; line-height: 1.8; }
                 .btn-primary { padding: 1.2rem 3.5rem; background-color: var(--color-accent); color: white; border: none; font-size: 1.1rem; letter-spacing: 0.1em; cursor: pointer; border-radius: 50px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
