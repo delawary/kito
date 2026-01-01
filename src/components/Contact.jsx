@@ -50,14 +50,14 @@ const Contact = () => {
         .contact-section {
           background-color: var(--color-wood-dark);
           color: var(--color-background-off-white);
-          padding: 4rem 0 2rem;
+          padding: 2.5rem 0 1.5rem;
         }
 
         .contact-content {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 3rem;
-          margin-bottom: 3rem;
+          gap: 2rem;
+          margin-bottom: 2rem;
         }
 
         @media (min-width: 960px) {
@@ -68,9 +68,9 @@ const Contact = () => {
 
         .cta-title {
           font-family: var(--font-family-serif);
-          font-size: clamp(3rem, 6vw, 5rem);
+          font-size: clamp(2rem, 5vw, 3.5rem);
           line-height: 1;
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
           color: var(--color-accent);
         }
 

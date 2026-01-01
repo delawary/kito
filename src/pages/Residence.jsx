@@ -178,7 +178,7 @@ const Residence = () => {
                 .gray-bg { background-color: #ddd; display: flex; align-items: center; justify-content: center; }
                 .placeholder-text { color: #888; letter-spacing: 0.1em; font-family: var(--font-family-serif); font-size: 1.5rem; }
 
-                .cta-section { text-align: center; background-color: var(--color-wood-dark); color: white; padding: 3rem 1.5rem; border-radius: 4px; }
+                .cta-section { text-align: center; background-color: var(--color-wood-dark); color: white; padding: 2.5rem 1rem; border-radius: 4px; }
                 .cta-section h2 { margin-bottom: 1.5rem; color: var(--color-accent); }
                 .btn-primary { padding: 1.2rem 3.5rem; background-color: var(--color-accent); color: white; border: none; font-size: 1.1rem; letter-spacing: 0.1em; cursor: pointer; border-radius: 50px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
                 .btn-primary:hover { background-color: white; color: var(--color-accent); transform: scale(1.05); }
