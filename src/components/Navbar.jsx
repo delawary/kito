@@ -5,6 +5,7 @@ import '../styles/global.css';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
 
     // Handle scroll effect
@@ -21,16 +22,39 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close menu on route change
+    useEffect(() => {
+        setIsMenuOpen(false);
+        document.body.style.overflow = 'auto'; // Reset scroll lock
+    }, [location]);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+        if (!isMenuOpen) {
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        } else {
+            document.body.style.overflow = 'auto'; // Unlock scroll
+        }
+    };
+
     // Check if we actally need a solid background (e.g. not on home page)
     const isHome = location.pathname === '/';
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${!isHome ? 'solid-bg' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${!isHome ? 'solid-bg' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
             <div className="container navbar-content">
                 <Link to="/" className="navbar-brand">
                     <img src={logo} alt="KITO" className="navbar-logo" />
                 </Link>
-                <ul className="navbar-links">
+
+                {/* Hamburger Toggle */}
+                <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle Menu">
+                    <span className={`bar ${isMenuOpen ? 'open' : ''}`}></span>
+                    <span className={`bar ${isMenuOpen ? 'open' : ''}`}></span>
+                    <span className={`bar ${isMenuOpen ? 'open' : ''}`}></span>
+                </button>
+
+                <ul className={`navbar-links ${isMenuOpen ? 'mobile-show' : ''}`}>
                     <li><Link to="/">TOP</Link></li>
                     <li><Link to="/clt-cell-unit">CLTセルユニット</Link></li>
                     <li><Link to="/residence">住まい</Link></li>
@@ -52,8 +76,8 @@ const Navbar = () => {
                     color: white;
                 }
 
-                .navbar.scrolled, .navbar.solid-bg {
-                    background-color: rgba(255, 255, 255, 0.95);
+                .navbar.scrolled, .navbar.solid-bg, .navbar.menu-open {
+                    background-color: rgba(255, 255, 255, 0.98);
                     padding: 1rem 0;
                     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
                     color: var(--color-text-primary);
@@ -63,15 +87,17 @@ const Navbar = () => {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    position: relative;
                 }
 
                 .navbar-brand {
                     display: flex;
                     align-items: center;
+                    z-index: 1100;
                 }
 
                 .navbar-logo {
-                    height: 50px; /* Adjust height as needed */
+                    height: 50px;
                     width: auto;
                     transition: all 0.4s ease;
                 }
@@ -105,10 +131,65 @@ const Navbar = () => {
                     width: 100%;
                 }
 
-                /* Mobile check - simple hide for now, or stack */
-                @media (max-width: 768px) {
+                /* Hamburger Styles */
+                .menu-toggle {
+                    display: none;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 30px;
+                    height: 21px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    z-index: 1100;
+                    padding: 0;
+                }
+
+                .bar {
+                    width: 100%;
+                    height: 2px;
+                    background-color: currentColor;
+                    transition: all 0.3s ease;
+                }
+
+                .bar.open:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+                .bar.open:nth-child(2) { opacity: 0; }
+                .bar.open:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+
+                @media (max-width: 960px) {
                     .navbar-links {
-                        display: none; /* TODO: Implement mobile menu if needed */
+                        gap: 1.5rem;
+                    }
+                }
+
+                @media (max-width: 820px) {
+                    .menu-toggle {
+                        display: flex;
+                    }
+
+                    .navbar-links {
+                        position: fixed;
+                        top: 0;
+                        right: -100%;
+                        width: 100%;
+                        height: 100vh;
+                        background: white;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        transition: right 0.4s cubic-bezier(0.45, 0, 0.55, 1);
+                        z-index: 1050;
+                        gap: 3rem;
+                    }
+
+                    .navbar-links.mobile-show {
+                        right: 0;
+                    }
+
+                    .navbar-links a {
+                        font-size: 1.5rem;
+                        color: var(--color-text-primary);
+                        font-family: var(--font-family-serif);
                     }
                 }
             `}</style>
