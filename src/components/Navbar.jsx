@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import '../styles/global.css';
 
 const Navbar = () => {
@@ -27,7 +28,7 @@ const Navbar = () => {
         <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${!isHome ? 'solid-bg' : ''}`}>
             <div className="container navbar-content">
                 <Link to="/" className="navbar-brand">
-                    KITO
+                    <img src={logo} alt="KITO" className="navbar-logo" />
                 </Link>
                 <ul className="navbar-links">
                     <li><Link to="/">TOP</Link></li>
@@ -65,10 +66,14 @@ const Navbar = () => {
                 }
 
                 .navbar-brand {
-                    font-family: var(--font-family-serif);
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    letter-spacing: 0.1em;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .navbar-logo {
+                    height: 50px; /* Adjust height as needed */
+                    width: auto;
+                    transition: all 0.4s ease;
                 }
 
                 .navbar-links {
